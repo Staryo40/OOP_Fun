@@ -3,10 +3,11 @@
 using namespace std;
 
 class Point {
-    public:
+    friend class SecondClass;
+    private: 
         int x = 0;
         int y = 0;
-
+    public:
         Point(){
             x = 0;
             y = 0;
@@ -14,8 +15,8 @@ class Point {
         }
 
         Point(int x, int y){
-            x = x;
-            y = y;
+            this->x = x;
+            this->y = y;
         }
 
         void displayInfo() {
@@ -24,9 +25,24 @@ class Point {
         }
 };
 
+class SecondClass {
+    private: int integerAttr;
+    private: char charAttr;
+    public: void someMethod(Point p);
+};
+
+void SecondClass::someMethod(Point p){  
+    if (p.x > p.y){
+        cout << "X is bigger" << endl;
+    } else {
+        cout << "Y is bigger" << endl;
+    }
+}
+
 int main(){
-    Point p;
-    printf("%d\n", p.x);
-    printf("%d\n", p.y);
+    Point p(1, 2);
     p.displayInfo();
+    SecondClass s;
+    s.someMethod(p);
+    return 0;
 }
