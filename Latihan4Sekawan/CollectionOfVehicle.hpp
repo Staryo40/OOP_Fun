@@ -26,9 +26,9 @@ class CollectionOfVehicle {
         // #2
         // printAll
         void printCollection();
-        
+
         // Operator overloading
-        CollectionOfVehicle& operator<<(Vehicle v);
+        CollectionOfVehicle& operator<<(Vehicle& v);
 
         CollectionOfVehicle& operator<<(CollectionOfVehicle& collV);
 };  

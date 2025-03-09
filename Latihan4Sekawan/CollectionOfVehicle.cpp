@@ -46,7 +46,7 @@ void CollectionOfVehicle::printCollection(){
 }
 
 // Operator overloading
-CollectionOfVehicle& CollectionOfVehicle::operator<<(Vehicle v){
+CollectionOfVehicle& CollectionOfVehicle::operator<<(Vehicle& v){
     if (Neff < MaxSize){
         this->collection[Neff] = v;
         Neff++;
